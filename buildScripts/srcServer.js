@@ -17,8 +17,12 @@ app.use(require('webpack-dev-middleware')(compiler,{
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname,'../src/index.html'));
 });
-app.get('/hello',function(req, res){
-		res.send('Hello fam');
+app.get('/users',function(req, res){
+		res.json([{"id":1, "firstname":"Greg", "lastname":"Ezema", "email":"greg@gmail.com"},
+		{"id":2, "firstname":"Austine", "lastname":"Ogbuanya", "email":"greg@gmail.com"},
+		{"id":3, "firstname":"Mac", "lastname":"Ugwuanyi", "email":"greg@gmail.com"},
+		{"id":4, "firstname":"Mara", "lastname":"Ezeoyili", "email":"greg@gmail.com"},
+		{"id":5, "firstname":"Promise", "lastname":"Ugwuanyi", "email":"greg@gmail.com"}])
 });
 app.listen(port, function(err){
     if(err){
