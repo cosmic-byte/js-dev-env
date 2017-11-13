@@ -5,9 +5,13 @@
     "scripts": {
       "prestart": "babel-node buildScripts/startMessage.js",
 			"open:src": "babel-node buildScripts/srcServer.js",
-			"start": "npm-run-all --parallel security-check open:src",
+			"lint": "esw webpack.config.* src buildScripts --color",
+			"lint:watch": "npm run lint -- --watch",
+			"start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
 			"localtunnel": "lt --port 3000",
-			"security-check": "nsp check"
+			"security-check": "nsp check",
+			"test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+			"test:watch":"npm run test -- --watch"
     },
     "author": "Cosmic byte",
     "license": "MIT",
