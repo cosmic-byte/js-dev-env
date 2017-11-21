@@ -5,7 +5,7 @@ getUsers().then(result => {
 
 	result.forEach(user => {
 		userBody+= `<tr>
-		<td><a href="#" data-ids="${user.id}" class="deleteUser">Delete</a></td>
+		<td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
 		<td>${user.id}</td>
 		<td>${user.firstName}</td>
 		<td>${user.lastName}</td>
@@ -15,10 +15,10 @@ getUsers().then(result => {
 
 	global.document.getElementById('users').innerHTML = userBody;
 
-	const deleteLinks = global.document.getElementByClassName('deleteUser');
+	const deleteLinks = global.document.getElementsByClassName('deleteUser');
 
 	Array.from(deleteLinks, link => {
-		link.onClick = function(event) {
+		link.onclick = function(event) {
 			const element = event.target;
 			event.preventDefault();
 			deleteUser(element.attributes["data-id"].value);
