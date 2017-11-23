@@ -1,2 +1,2 @@
-# js-dev-env
-JavaScript development Environment from Pluralsite course with Cory House
+# Js-dev-env
+JavaScript development Environment Starter Kit
